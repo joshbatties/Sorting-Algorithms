@@ -89,3 +89,10 @@ Heap Sort has a space complexity of O(1) beyond the original array. This is beca
 Stability:
 Heap Sort is not a stable sorting algorithm. Stability in sorting algorithms is the property that ensures that two records with equal keys appear in the same order in sorted output as they appear in the input unsorted array. Since Heap Sort operates based on a binary heap structure and may move elements around in the heap during the sorting process, it can change the relative order of equal elements, hence it is not stable.
 
+# TODO
+counting sort
+radix sort
+quicksort/select
+
+visualisations
+
