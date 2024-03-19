@@ -1,4 +1,4 @@
-# Sorting-Algorithms
+## Sorting-Algorithms
 A collection of all the sorting algorithms introduced in Monash University's FIT2004: Algorithms and Data Structures
 
 # Insertion Sort:
@@ -65,3 +65,27 @@ This additional space is required for storing the temporary arrays used to merge
 Stability:
 Merge Sort is a stable sorting algorithm. 
 This means that if two elements have equal values, they will retain their relative order in the sorted array. The stability is ensured during the merging process: when two elements from different halves are equal, the element from the left half (which originally came first) is always chosen first, preserving order among equal elements.
+
+# Heap Sort
+Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It's similar to selection sort where we first find the maximum element and place the maximum element at the end. We repeat the same process for the remaining elements.
+
+Here's the general approach for implementing heap sort:
+1. Build a max heap from the input data.
+2. At this point, the largest item is stored at the root of the heap. Replace it with the last item of the heap followed by reducing the size of heap by 1. Finally, heapify the root of the tree.
+3. Repeat step 2 while the size of the heap is greater than 1.
+
+Time Complexity:
+Best Case: The best-case time complexity of Heap Sort is O(n log n), which occurs when the input array is already a heap.
+
+Average Case: The average-case time complexity of Heap Sort is also O(n log n). 
+Regardless of the initial order of the elements, the total time to build the heap is O(n), and the time to delete all elements from the heap (heapify each time) is O(n log n).
+
+Worst Case: The worst-case time complexity is also O(n log n). 
+Even in the worst case, heap sort makes a log n number of comparisons for each of the n elements.
+
+Space Complexity:
+Heap Sort has a space complexity of O(1) beyond the original array. This is because Heap Sort is an in-place sorting algorithm; it does not require any extra space beyond what is needed to hold the original array.
+
+Stability:
+Heap Sort is not a stable sorting algorithm. Stability in sorting algorithms is the property that ensures that two records with equal keys appear in the same order in sorted output as they appear in the input unsorted array. Since Heap Sort operates based on a binary heap structure and may move elements around in the heap during the sorting process, it can change the relative order of equal elements, hence it is not stable.
+
