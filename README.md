@@ -40,7 +40,6 @@ Space Complexity:
 The space complexity of selection sort is O(1), meaning it requires a constant amount of extra memory space. This is because the sorting is done in place, and apart from a few variables for indexing and swapping, no additional storage is required regardless of the array size.
 
 Stability:
-tability:
 A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. Selection sort is not stable by nature because it may swap elements far apart, causing equal elements to change their relative order. However, it can be made stable with some modifications.
 
 
