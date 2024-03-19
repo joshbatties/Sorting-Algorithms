@@ -11,14 +11,17 @@ Here's the general approach for implementing insertion sort:
 3. If the current element is smaller than its predecessor, compare it to the elements before. Move the greater elements one position up to make space for the swapped elements.
 
 Time Complexity:
-Best Case (Already Sorted List): The best-case scenario occurs when the array is already sorted. In this case, each element is compared only once with the previous element, and since it's already in the correct position, no swaps are needed. Therefore, the best-case time complexity is O(n), where n is the number of elements in the array.
+Best Case (Already Sorted List): The best-case scenario occurs when the array is already sorted. In this case, each element is compared only once with the previous element, and since it's already in the correct position, no swaps are needed. 
+Therefore, the best-case time complexity is O(n), where n is the number of elements in the array.
 
-Worst Case (Reversely Sorted List): The worst-case scenario happens when the array is sorted in reverse order. In this case, each new element needs to be compared with each of the already sorted elements and then placed at the beginning of the array. This gives a worst-case time complexity of O(n²).
+Worst Case (Reversely Sorted List): The worst-case scenario happens when the array is sorted in reverse order. In this case, each new element needs to be compared with each of the already sorted elements and then placed at the beginning of the array. 
+This gives a worst-case time complexity of O(n²).
 
 Average Case: For an average case scenario, where the array is in random order, the average time complexity is also O(n²). 
 
 Space Complexity:
-The space complexity of Insertion Sort is O(1). This is because Insertion Sort is an in-place sorting algorithm, meaning it does not require any additional storage apart from the input list. It uses only a constant amount of additional memory space for variables used in the algorithm (like the key and the index variables), which makes it space-efficient.
+The space complexity of Insertion Sort is O(1). 
+This is because Insertion Sort is an in-place sorting algorithm, meaning it does not require any additional storage apart from the input list. It uses only a constant amount of additional memory space for variables used in the algorithm (like the key and the index variables), which makes it space-efficient.
 
 Stability:
 Insertion Sort is a stable sorting algorithm. Stability in a sorting algorithm means that two objects with equal keys appear in the same order in the sorted output as they appear in the input. Insertion Sort maintains this order because when equal elements are encountered, the algorithm does not swap them. Instead, it only moves the new element past them, thereby preserving their original order relative to each other.
@@ -34,7 +37,8 @@ Here's the general approach for implementing selection sort:
 4. Move to the next element and repeat the process until the entire array is sorted.
 
 Time Complexity:
-Worst/Best: The time complexity of selection sort is O(n²), where n is the number of elements in the array. This is because for each element of the array, the algorithm scans the remaining elements to find the minimum (or maximum), which leads to a total of about 1/2 * n * (n-1) comparisons, which simplifies to O(n²). The time complexity of selection sort does not actually depend on the arrangement of the elements in the array. 
+Worst/Best: The time complexity of selection sort is O(n²), where n is the number of elements in the array. 
+This is because for each element of the array, the algorithm scans the remaining elements to find the minimum (or maximum), which leads to a total of about 1/2 * n * (n-1) comparisons, which simplifies to O(n²). The time complexity of selection sort does not actually depend on the arrangement of the elements in the array. 
 
 Space Complexity:
 The space complexity of selection sort is O(1), meaning it requires a constant amount of extra memory space. This is because the sorting is done in place, and apart from a few variables for indexing and swapping, no additional storage is required regardless of the array size.
@@ -42,5 +46,22 @@ The space complexity of selection sort is O(1), meaning it requires a constant a
 Stability:
 A sorting algorithm is said to be stable if two objects with equal keys appear in the same order in sorted output as they appear in the input array to be sorted. Selection sort is not stable by nature because it may swap elements far apart, causing equal elements to change their relative order. However, it can be made stable with some modifications.
 
+# Merge Sort
+Merge Sort is a divide-and-conquer algorithm that divides the unsorted list into n sublists, each containing one element (a list of one element is considered sorted), and then repeatedly merges sublists to produce new sorted sublists until there is only one sublist remaining. This will be the sorted list.
 
+Here's the general approach for implementing merge sort:
+1. Divide (Splitting the array): If the array contains more than one element, we split it into two halves.
+2. Conquer (Sorting each half): We recursively sort both halves of the array.
+3. Combine (Merging sorted halves): We merge the two halves to produce a single sorted array.
 
+Time Complexity:
+Worst/Best: O(n log n), where 'n' is the number of elements in the array.
+This is because the list is being split in half each time (which contributes to the log n part), and then each level of splits needs to be merged back together (which contributes to the n part).
+
+Space Complexity:
+The space complexity of Merge Sort is O(n), where 'n' is the number of elements in the array.
+This additional space is required for storing the temporary arrays used to merge sorted sections. Even though the merge steps are applied sequentially and in-place merging is possible, the standard implementation of Merge Sort, as presented here, requires additional space proportional to the size of the input array for the duration of the sorting process.
+
+Stability:
+Merge Sort is a stable sorting algorithm. 
+This means that if two elements have equal values, they will retain their relative order in the sorted array. The stability is ensured during the merging process: when two elements from different halves are equal, the element from the left half (which originally came first) is always chosen first, preserving order among equal elements.
