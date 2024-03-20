@@ -131,8 +131,11 @@ Space Complexity:
 Stability:
 The stability of Radix Sort depends on the stability of the sorting algorithm used for sorting individual digits. In this case, because Counting Sort is used, and Counting Sort is stable, Radix Sort remains stable. This is crucial for ensuring that numbers with the same values for earlier digits remain in the same relative order as they were in the original list after all digits have been sorted.
 
-# TODO
-quicksort/select
+# Quick Sort
 
-visualisations
+Here's the general approach for implementing counting sort:
+1. Select some element of the array, which we will call the pivot.
+2. Partition the array so that all items less then the pivot are to its left, all elements equal to the pivot are in the middle, and all elements greater than the pivot are to its right. 
+3. Quicksort the left part of the array (elements less than the pivot).
+4. Quicksort the right part of the array (elements greater than the pivot)
 
