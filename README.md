@@ -116,7 +116,11 @@ Standard Counting Sort: When called with just the array as an argument, it perfo
 Digit-based Counting Sort: When called with a second argument (place), it sorts the array based on the digit in the position indicated by place. This mode is intended for use within radix_sort.
 
 # Radix Sort
-Works by sorting numbers one digit at a time, moving from the least significant digit to the most significant digit. This method requires a stable sorting algorithm like Counting Sort (as used here) for sorting the digits.
+Radix sort is a non-comparative sorting algorithm that sorts data with integer keys by grouping the keys by individual digits that share the same significant position and value (i.e., place value). Moving from the least significant digit to the most significant digit, Radix sort uses counting sort as a subroutine to sort. 
+
+Here's the general approach for implementing counting sort:
+1. Find the maximum number to know the number of digits.
+2. Do the following for each digit i where i varies from the least significant digit to the most significant digit: Sort input array using counting sort (or any stable sort) according to the i-th digit.
 
 Time Complexity:
 The total time complexity of Radix Sort is O(kn), where k is the number of digits in the maximum number in the array and n is the number of elements. Since k can be considered O(log10(max_element)), the time complexity is often represented as O(n * log10(max_element)). 
