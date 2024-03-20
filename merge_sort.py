@@ -32,5 +32,5 @@ def merge(left, right):
     result += right[j:]
     return result
 
-
-print(merge_sort([121, 12, 132, 51, 61, 99]))
+if __name__ == "__main__":
+    print(merge_sort([121, 12, 132, 51, 61, 99]))

@@ -32,6 +32,6 @@ def heapify(arr, n, i):
         # Heapify the root.
         heapify(arr, n, largest)
 
-
-print(heap_sort([121, 12, 132, 51, 61, 99]))
+if __name__ == "__main__":
+    print(heap_sort([121, 12, 132, 51, 61, 99]))
 

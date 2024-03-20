@@ -89,9 +89,45 @@ Heap Sort has a space complexity of O(1) beyond the original array. This is beca
 Stability:
 Heap Sort is not a stable sorting algorithm. Stability in sorting algorithms is the property that ensures that two records with equal keys appear in the same order in sorted output as they appear in the input unsorted array. Since Heap Sort operates based on a binary heap structure and may move elements around in the heap during the sorting process, it can change the relative order of equal elements, hence it is not stable.
 
+# Counting Sort
+Counting sort is an integer sorting algorithm. Unlike comparison-based sorting algorithms like quicksort or mergesort, counting sort sorts elements by counting the number of objects that have each distinct key value, and then doing some arithmetic to calculate the position of each object in the output sequence. It works best when the range of input data (the difference between the maximum and minimum element) is not significantly larger than the number of objects to be sorted.
+
+Here's the general approach for implementing counting sort:
+1. Find the minimum and maximum values in the input array.
+2. Create a count array (or "counting array") that will store the count of each distinct element in the input array. The size of this array should be the range of the input values (max - min + 1).
+3. Count each element in the input array and place the count at the appropriate index of the count array.
+4. Transform the count array such that each element at each index stores the sum of previous counts. This step makes the count array store the positions of each element in the sorted order.
+5. Build the output array by placing input elements at the correct positions in it, decrementing the corresponding counts from the count array.
+
+Time Complexity:
+Best, Average, and Worst Cases: O(n + k), where 'n' is the number of elements in the input array, and 'k' is the range of the input (difference between the maximum and minimum elements).
+The linear time complexity is because the algorithm processes each of the 'n' elements exactly once and then does additional work that is proportional to 'k' (creating and updating the count array).
+
+Space Complexity:
+O(n + k). This is because you need space not only for the counts (which depends on the range of the input values) but also for the sorted output.
+It's important to note that while counting sort is efficient in terms of time complexity, especially when 'k' is not significantly larger than 'n', its space complexity can become a limitation if 'k' (the range of input values) is very large.
+
+Stability:
+Counting sort is stable, which means that if two elements have the same value, they will retain their relative order in the sorted array as they had in the input array.
+This stability is achieved during the final phase of the algorithm, where elements are placed into the output array starting from the end of the input array and decrementing the corresponding counts in the count array. This backward filling ensures that duplicates are placed in the output array in the reverse order they appear in the input, thus maintaining their relative order.
+
+I've adapted the counting_sort function to operate in two modes:
+Standard Counting Sort: When called with just the array as an argument, it performs the traditional counting sort, sorting the entire numbers.
+Digit-based Counting Sort: When called with a second argument (place), it sorts the array based on the digit in the position indicated by place. This mode is intended for use within radix_sort.
+
+# Radix Sort
+Works by sorting numbers one digit at a time, moving from the least significant digit to the most significant digit. This method requires a stable sorting algorithm like Counting Sort (as used here) for sorting the digits.
+
+Time Complexity:
+The total time complexity of Radix Sort is O(kn), where k is the number of digits in the maximum number in the array and n is the number of elements. Since k can be considered O(log10(max_element)), the time complexity is often represented as O(n * log10(max_element)). 
+
+Space Complexity:
+?????????
+
+Stability:
+The stability of Radix Sort depends on the stability of the sorting algorithm used for sorting individual digits. In this case, because Counting Sort is used, and Counting Sort is stable, Radix Sort remains stable. This is crucial for ensuring that numbers with the same values for earlier digits remain in the same relative order as they were in the original list after all digits have been sorted.
+
 # TODO
-counting sort
-radix sort
 quicksort/select
 
 visualisations

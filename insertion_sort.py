@@ -12,4 +12,5 @@ def insertion_sort(arr):
         arr[j + 1] = key
     return arr
 
-print(insertion_sort([121, 12, 132, 51, 61, 99]))
+if __name__ == "__main__":
+    print(insertion_sort([121, 12, 132, 51, 61, 99]))

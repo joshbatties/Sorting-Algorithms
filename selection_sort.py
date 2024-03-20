@@ -13,4 +13,5 @@ def selection_sort(arr):
         arr[i], arr[min_idx] = arr[min_idx], arr[i]
     return arr
 
-print(selection_sort([121, 12, 132, 51, 61, 99]))
+if __name__ == "__main__":
+    print(selection_sort([121, 12, 132, 51, 61, 99]))
