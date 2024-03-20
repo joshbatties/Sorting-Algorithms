@@ -2,21 +2,19 @@ def counting_sort(arr, place=None):
     # Determine the range of the elements based on the sorting phase.
     if place is None:
         # If place is None, we're not sorting based on digits, so find the min and max of the array.
-        min_val = min(arr)
         max_val = max(arr)
     else:
         # If sorting by digit place, set the range to be 0 to 9 (for decimal digits).
         min_val = 0  
         max_val = 9  
 
-    # Calculate the range of elements to create the count array.
-    range_of_elements = max_val - min_val + 1
-    count_arr = [0] * range_of_elements  # Initialize count array with zeros.
+    # Create the count array.
+    count_arr = [0] * (max_val + 1)  # Initialize count array with zeros.
 
     # Populate the count array with frequencies of each element or digit.
     if place is None:
         for num in arr:
-            count_arr[num - min_val] += 1  # Increment count for each element.
+            count_arr[num] += 1  # Increment count for each element.
     else:
         for num in arr:
             digit = (num // place) % 10  # Extract the relevant digit.
@@ -31,8 +29,8 @@ def counting_sort(arr, place=None):
     if place is None:
         for num in reversed(arr):
             # Place each element in the correct position in the output array.
-            count_arr[num - min_val] -= 1
-            new_position = count_arr[num - min_val]
+            count_arr[num] -= 1
+            new_position = count_arr[num]
             output_arr[new_position] = num
     else:
         for num in reversed(arr):
