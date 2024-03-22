@@ -1,4 +1,4 @@
-from counting_sort import counting_sort
+from python.counting_sort import counting_sort
 
 def radix_sort(arr):
     # Find the maximum element to determine the number of digits.
