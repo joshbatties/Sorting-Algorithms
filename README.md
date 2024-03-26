@@ -67,7 +67,7 @@ Merge Sort is a stable sorting algorithm.
 This means that if two elements have equal values, they will retain their relative order in the sorted array. The stability is ensured during the merging process: when two elements from different halves are equal, the element from the left half (which originally came first) is always chosen first, preserving order among equal elements.
 
 # Heap Sort
-Heap sort is a comparison-based sorting technique based on Binary Heap data structure. It's similar to selection sort where we first find the maximum element and place the maximum element at the end. We repeat the same process for the remaining elements.
+Heap sort is a comparison-based sorting technique based on Binary Heap data structure. The main idea behind heap sort is to first convert the input array into a max heap (a complete binary tree where each node is greater than or equal to its children). Once the array is in max heap form, the maximum element is guaranteed to be at the root of the heap. The algorithm then repeatedly removes the maximum element from the heap (which is at the root), places it at the end of the sorted section of the array, and re-heapifies the remaining elements to ensure the heap property is maintained. This process is repeated until all elements are sorted.
 
 Here's the general approach for implementing heap sort:
 1. Build a max heap from the input data.
