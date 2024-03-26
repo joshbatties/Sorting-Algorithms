@@ -118,20 +118,25 @@ Digit-based Counting Sort: When called with a second argument (place), it sorts 
 # Radix Sort
 Radix sort is a non-comparative sorting algorithm that sorts data with integer keys by grouping the keys by individual digits that share the same significant position and value (i.e., place value). Moving from the least significant digit to the most significant digit, Radix sort uses counting sort as a subroutine to sort. 
 
-Here's the general approach for implementing counting sort:
+Here's the general approach for implementing radix sort:
 1. Find the maximum number to know the number of digits.
 2. Do the following for each digit i where i varies from the least significant digit to the most significant digit: Sort input array using counting sort (or any stable sort) according to the i-th digit.
 
 Time Complexity:
-The total time complexity of Radix Sort is O(kn), where k is the number of digits in the maximum number in the array and n is the number of elements. Since k can be considered O(log10(max_element)), the time complexity is often represented as O(n * log10(max_element)). 
+Best/Average/Worst Cases: O(kn), where n is the number of elements and k is the number of digits in each element. 
+Its important to note that for numbers in practical scenarios (especially when k is not exceedingly large compared to n), this can be very efficient. For example, if all numbers are in the same range, k is constant, making the time complexity effectively linear, O(n).
 
 Space Complexity:
-?????????
+The overall space complexity of the radix_sort algorithm, assuming the typical case where counting_sort needs to create a temporary array to hold sorted elements, is O(n). This is true in my implementation
+The constant space used directly in radix_sort is O(1).
+The space used for the counting_sort can be considered O(n) for each digit of the numbers being sorted, due to the temporary array typically required to store sorted values before writing them back to the original array.
+
 
 Stability:
 The stability of Radix Sort depends on the stability of the sorting algorithm used for sorting individual digits. In this case, because Counting Sort is used, and Counting Sort is stable, Radix Sort remains stable. This is crucial for ensuring that numbers with the same values for earlier digits remain in the same relative order as they were in the original list after all digits have been sorted.
 
 # Quick Sort
+Quicksort is a comparison-based divide and conquer sorting algroithm that sorts an array recursively. It works by selecting a 'pivot' element from the array to be sorted. The array is then partitioned into two subsets: one containing elements less than the pivot and the other containing elements greater than the pivot. This partitioning is done such that each element in the first subset is less than or equal to each element in the second subset. Quicksort then recursively sorts the two subsets. This process continues until the base case of an array with zero or one element is reached, at which point the array is already sorted.
 
 Here's the general approach for implementing counting sort:
 1. Select some element of the array, which we will call the pivot.
@@ -139,3 +144,15 @@ Here's the general approach for implementing counting sort:
 3. Quicksort the left part of the array (elements less than the pivot).
 4. Quicksort the right part of the array (elements greater than the pivot)
 
+Time Complexity:
+Best Case: The best-case time complexity of quicksort is O(n log n), which occurs when the partitions are as evenly balanced as possible — that is, each pivot chosen splits the list into two equal-sized parts. This ensures that the height of the recursion tree is log(n), with each level of the tree involving a total of n comparisons.
+
+Average Case: The average-case time complexity is also O(n log n). This is under the assumption that all partitions are reasonably well balanced, which is typically the case for random or varied input data.
+
+Worst Case: The worst-case time complexity is O(n²), which occurs when the partitioning is extremely unbalanced, such as when the smallest or largest element is always chosen as the pivot. This results in one partition with n-1 elements and the other with 0 elements, leading to a recursion depth of n, which results in quadratic performance.
+
+Space Complexity:
+The space complexity of quicksort depends on the implementation. The provided versions use O(log n) space in the best and average cases, due to the space used on the call stack for recursive function calls (this is considering the best and average cases for the depth of recursion). However, in the worst case, the space complexity can become O(n) due to the depth of the call stack if the partitioning is extremely unbalanced.
+
+Stability:
+The implementation of Quicksort, like most standard implementations of Quicksort, is not stable. This instability arises from the partitioning step where elements could be swapped without preserving the original relative order of equal elements. However quicksort can be made stable with some modifications which add complexity.
