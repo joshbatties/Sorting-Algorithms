@@ -59,4 +59,9 @@ function countingSort(arr, place = null) {
     // Return the sorted array. If sorting by digits, the original array is modified and returned.
     return place === null ? output_arr : arr;
 }
-console.log(countingSort([4, 2222, 0, 8, 3, 3, -1])) 
+
+// Test the countingSort function. (uncomment to test)
+//console.log(radixSort([4, 2222, 0, 8, 3, 3]))
+
+// Export the countingSort function for use in radixSort.
+module.exports = countingSort; 
