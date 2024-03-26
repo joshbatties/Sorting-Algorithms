@@ -50,4 +50,4 @@ def counting_sort(arr, place=None):
 
 
 if __name__ == "__main__":
-    print(counting_sort([4, 2, 2, 8, 3, 0, 3, 1, 96]))
+    print(counting_sort([4, 2, 2, 8, 3, 0, 3, 1]))
